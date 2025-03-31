@@ -8,5 +8,16 @@
 <body>
     <h1>Primer Commit: Raúl</h1>
     <p>Este es el segundo commit enviado por: Esteban</p>
+    <div id="colorPickerContainer">
+        <h2>Elige un color:</h2>
+        <input type="color" id="colorPicker" value="#ffffff">
+        <button id="acceptButton">Aceptar</button>
+    </div>
+    <script>
+        document.getElementById('acceptButton').addEventListener('click', function() {
+            const color = document.getElementById('colorPicker').value;
+            document.body.style.backgroundColor = color;
+        });
+    </script>
 </body>
 </html>
