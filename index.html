@@ -81,10 +81,12 @@
 
         <label for="fontSizeSelect">Tamaño del texto:</label>
         <select id="fontSizeSelect">
+            <option value="8px">Enano</option>
             <option value="14px">Pequeño</option>
             <option value="18px">Normal</option>
             <option value="24px">Grande</option>
             <option value="30px">Muy Grande</option>
+            <option value="45px">Gigante</option>
         </select>
 
         <label for="fontStyleSelect">Estilo de la fuente:</label>
@@ -93,6 +95,9 @@
             <option value="italic">Itálico</option>
             <option value="bold">Negrita</option>
         </select>
+
+        <label for="fontColorSelect">Color del texto:</label>
+        <input type="color" id="fontColorSelect" value="#000000">
 
         <button id="applyButton">Aplicar Cambios</button>
 
@@ -111,13 +116,15 @@
             const newText = document.getElementById('textInput').value;
             const newSize = document.getElementById('fontSizeSelect').value;
             const newStyle = document.getElementById('fontStyleSelect').value;
+            const newColor = document.getElementById("fontColorSelect").value;
 
-            // Cambiar el texto, tamaño y estilo
+            // Cambiar el texto, tamaño, estilo y color
             const textElement = document.getElementById('customText');
             textElement.textContent = newText ? newText : textElement.textContent;
             textElement.style.fontSize = newSize;
             textElement.style.fontStyle = newStyle;
             textElement.style.fontWeight = (newStyle === 'bold') ? 'bold' : 'normal';
+            textElement.style.color = newColor;
         });
     </script>
 
