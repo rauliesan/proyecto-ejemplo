@@ -4,20 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambios del index.html en GitHub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            flex-direction: column;
+        }
+
+        #colorPickerContainer, #textCustomizationContainer {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+
+        h1, h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        input, select, button {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #customText {
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+
     <h1>Primer Commit: Raúl</h1>
     <p>Este es el segundo commit enviado por: Esteban</p>
+
+    <!-- Selector de color -->
     <div id="colorPickerContainer">
-        <h2>Elige un color:</h2>
+        <h2>Elige un color de fondo:</h2>
         <input type="color" id="colorPicker" value="#ffffff">
         <button id="acceptButton">Aceptar</button>
     </div>
+
+    <!-- Personalización de texto -->
+    <div id="textCustomizationContainer">
+        <h2>Personaliza el texto:</h2>
+
+        <label for="textInput">Escribe algo nuevo:</label>
+        <input type="text" id="textInput" placeholder="Escribe aquí...">
+
+        <label for="fontSizeSelect">Tamaño del texto:</label>
+        <select id="fontSizeSelect">
+            <option value="14px">Pequeño</option>
+            <option value="18px">Normal</option>
+            <option value="24px">Grande</option>
+            <option value="30px">Muy Grande</option>
+        </select>
+
+        <label for="fontStyleSelect">Estilo de la fuente:</label>
+        <select id="fontStyleSelect">
+            <option value="normal">Normal</option>
+            <option value="italic">Itálico</option>
+            <option value="bold">Negrita</option>
+        </select>
+
+        <button id="applyButton">Aplicar Cambios</button>
+
+        <p id="customText">¡Este es un texto personalizable!</p>
+    </div>
+
     <script>
+        // Cambiar color de fondo
         document.getElementById('acceptButton').addEventListener('click', function() {
             const color = document.getElementById('colorPicker').value;
             document.body.style.backgroundColor = color;
         });
+
+        // Cambiar texto, tamaño y estilo
+        document.getElementById('applyButton').addEventListener('click', function() {
+            const newText = document.getElementById('textInput').value;
+            const newSize = document.getElementById('fontSizeSelect').value;
+            const newStyle = document.getElementById('fontStyleSelect').value;
+
+            // Cambiar el texto, tamaño y estilo
+            const textElement = document.getElementById('customText');
+            textElement.textContent = newText ? newText : textElement.textContent;
+            textElement.style.fontSize = newSize;
+            textElement.style.fontStyle = newStyle;
+            textElement.style.fontWeight = (newStyle === 'bold') ? 'bold' : 'normal';
+        });
     </script>
+
 </body>
 </html>
